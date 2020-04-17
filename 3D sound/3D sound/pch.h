@@ -7,6 +7,13 @@
 #ifndef PCH_H
 #define PCH_H
 
+#ifndef UNICODE
+#define UNICODE
+#endif 
+
 // add headers that you want to pre-compile here
+#include <Windows.h>
+#include <d3d11.h>
+#include <d3dcompiler.h>
 
 #endif //PCH_H
