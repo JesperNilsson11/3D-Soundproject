@@ -6,6 +6,6 @@ public:
 	~Window();
 
 	HWND getHandle() { return hwnd; }
-private:
+public:
 	HWND hwnd;
 };

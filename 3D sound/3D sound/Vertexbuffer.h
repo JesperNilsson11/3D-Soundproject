@@ -2,16 +2,16 @@
 
 #include "Graphics.h"
 
-class ID3D11Buffer;
+struct ID3D11Buffer;
 
 struct Vertex {
 	FLOAT x, y, z;
-	FLOAT color[4];
+	FLOAT tex[2];
 };
 
 class VertexBuffer {
 public:
-	VertexBuffer(Graphics& g);
+	VertexBuffer(Graphics& g, Vertex* vertices, int num);
 
 	void bind(Graphics& g);
 private:

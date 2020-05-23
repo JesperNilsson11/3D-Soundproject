@@ -348,3 +348,35 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/packaging
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/port
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/samples
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/scripts
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/test
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/tools
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/workspaces/xcode3
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/doc
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/cmake-modules
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/bin32
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/.gitignore
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/.travis.yml
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/assimp-config-version.cmake.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/assimp-config.cmake.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/assimp.pc.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/AssimpBuildTreeSettings.cmake.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/AssimpCmdDoc.chm
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/AssimpConfig.cmake.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/AssimpConfigVersion.cmake.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/AssimpDoc.chm
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/CHANGES
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/CMakeLists.txt
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/CodeConventions.txt
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/CREDITS
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/INSTALL
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/LICENSE
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/README
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/Readme.md
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/revision.h.in
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/bin64/assimp.exe
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/bin64/assimp_viewer.exe
+/3D sound/Libs/Assimp/assimp-3.1.1-win-binaries/code/BoostWorkaround/boost

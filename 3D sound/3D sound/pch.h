@@ -13,7 +13,20 @@
 
 // add headers that you want to pre-compile here
 #include <Windows.h>
+#include <xaudio2.h>
 #include <d3d11.h>
 #include <d3dcompiler.h>
+#include <DirectXMath.h>
+
+#include <cmath>
+#include <unordered_map>
+#include <string>
+#include <chrono>
+#include <vector>
+#include <memory>
+
+namespace dx = DirectX;
+
+const std::string assets("..\\Assets\\");
 
 #endif //PCH_H

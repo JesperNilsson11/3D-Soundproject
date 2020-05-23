@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Graphics.h"
-class ID3D10Blob;
+struct ID3D10Blob;
 
 class VertexShader {
 public:

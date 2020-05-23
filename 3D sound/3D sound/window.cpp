@@ -34,6 +34,23 @@ Window::Window(int width, int height, HINSTANCE instance) {
         throw 1;
 
     ShowWindow(hwnd, SW_SHOW);
+    ShowCursor(FALSE);
+
+#ifndef HID_USAGE_PAGE_GENERIC
+#define HID_USAGE_PAGE_GENERIC         ((USHORT) 0x01)
+#endif
+#ifndef HID_USAGE_GENERIC_MOUSE
+#define HID_USAGE_GENERIC_MOUSE        ((USHORT) 0x02)
+#endif
+
+    RAWINPUTDEVICE Rid[1];
+    Rid[0].usUsagePage = HID_USAGE_PAGE_GENERIC;
+    Rid[0].usUsage = HID_USAGE_GENERIC_MOUSE;
+    Rid[0].dwFlags = RIDEV_INPUTSINK;
+    Rid[0].hwndTarget = hwnd;
+    RegisterRawInputDevices(Rid, 1, sizeof(Rid[0]));
+    SetCursorPos(500, 500);
+    //SetCapture(hwnd);
 }
 
 Window::~Window() {

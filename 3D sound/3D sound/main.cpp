@@ -4,8 +4,52 @@
 #include "pch.h"
 
 #include "app.h"
+#include "input.h"
+#include <windowsx.h>
 
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+static std::unordered_map<WPARAM, bool> keys;
+//static int xPos = 500;
+//static int yPos = 500;
+//static int lastXPos = 500;
+//static int lastYPos = 500;
+static int xdelta = 0;
+static int ydelta = 0;
+static bool showcursor = false;
+
+void Input::SetMouse() {
+    if (!showcursor) {
+        //xdelta = xPos - lastXPos;
+        //SetCursorPos(500, 500);
+        //xPos = 500;
+        //lastXPos = 500;
+        RECT r;
+        r.left = 400;
+        r.top = 400;
+        r.right = 420;
+        r.bottom = 420;
+        ClipCursor(&r);
+    }
+    else {
+        ClipCursor(nullptr);
+    }
+    //lastXPos = xPos;
+    xdelta = 0;
+    ydelta = 0;
+}
+
+bool Input::KeyDown(char c) {
+    return keys[c];
+}
+
+int Input::XmouseDelta() {
+    return xdelta;
+}
+
+int Input::YmouseDelta() {
+    return ydelta;
+}
+
+//LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 int WINAPI wWinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
@@ -25,8 +69,53 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;
-    }
+    case WM_KEYDOWN:
+        //SetWindowTextA(hwnd, (std::to_string(xPos) + " " + std::to_string(lastXPos)).c_str());
+        keys[wParam] = true;
+        return 0;
+    case WM_KEYUP:
+        keys[wParam] = false;
+        if (wParam == VK_ESCAPE) {
+            showcursor = !showcursor;
+            ShowCursor(showcursor);
+        }
+        return 0;
+    //case WM_MOUSEMOVE: {
+    //    if (!showcursor) {
+    //        lastXPos = xPos;
+    //        lastYPos = yPos;
+    //        xPos = GET_X_LPARAM(lParam);
+    //        yPos = GET_Y_LPARAM(lParam);
+    //        //SetWindowTextA(hwnd, (std::to_string(xPos) + " " + std::to_string(yPos)).c_str());
+    //        //SetCursorPos(500, 500);
+    //        //lastXPos = 500;
+    //        //lastYPos = 500;
+    //    }
+    //    return 0;
+    //}
+    case WM_INPUT:
+    {
+        if (!showcursor) {
+            UINT dwSize = 48;
+            static BYTE lpb[48];
 
+            GetRawInputData((HRAWINPUT)lParam, RID_INPUT,
+                lpb, &dwSize, sizeof(RAWINPUTHEADER));
+
+            RAWINPUT* raw = (RAWINPUT*)lpb;
+
+            if (raw->header.dwType == RIM_TYPEMOUSE)
+            {
+                int xPosRelative = raw->data.mouse.lLastX;
+                int yPosRelative = raw->data.mouse.lLastY;
+                xdelta += xPosRelative;
+                ydelta += yPosRelative;
+            }
+        }
+        break;
+    }
+    }
+    
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
 
